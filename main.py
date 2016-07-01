@@ -1,4 +1,6 @@
 from flask import Flask
+import os
+
 app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://mscn:199132@localhost/urlshortener'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
