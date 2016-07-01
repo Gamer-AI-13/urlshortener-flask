@@ -74,9 +74,18 @@ body {
 .red-text {
     color: #D2464A;
     font-weight: bold;
-    font-size: 5rem;
+    font-size: 3rem;
+}
+
+.page-header {
+    display: flex;
+    flex-direction: column;
 }
 
 .page-header .btn {
     color: white;
+}
+
+.domain {
+    font-size: 2rem;
 }
