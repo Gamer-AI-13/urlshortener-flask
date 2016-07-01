@@ -1,0 +1,57 @@
+html,
+body {
+    height: 100%;
+}
+
+.top-button {
+    max-width: 15rem;
+    margin: auto;
+    background: #D9534F;
+    text-align: center;
+    padding: .5rem .5rem;
+}
+
+.top-button a {
+    color: white;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 1.5rem;
+}
+
+#top-section {
+    /*background: #3B434C;*/
+    background: url('../img/negativespace1-6.jpg') center center no-repeat;
+    min-height: 25rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+#about-section {
+    padding: 5rem 0 2rem 0;
+    text-align: justify;
+}
+
+#tech-section img {
+    border-radius: 50%;
+    max-width: 125px;
+}
+
+.card {
+    padding: 4rem;
+    border: none;
+}
+
+#footer {
+    background: #222;
+    color: white;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+    box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+#footer a {
+    color: #CC3C3F;
+}

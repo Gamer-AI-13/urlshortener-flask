@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask URL Shortener</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/info-styles.css') }}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+      <div class="box">
+          <div class="cover">
+              <div class="top-button">
+                  <a href="/">
+                      u<strong>shrink</strong>
+                  </a>
+              </div>
+              <div class="container">
+                  <div class="page-header">
+                      <h1 class="display-5">
+                          about
+                      </h1>
+                      <a href="/{{url.url_hash}}" class="btn">
+                          <strong class="display-4 url">
+                              shortened.url/<span class="red-text">{{url.url_hash}}</span>
+                          </strong>
+                      </a>
+                  </div>
+                  <div class="table-container">
+                      <table class="table table-borderless">
+                          <tbody>
+                              <tr>
+                                  <th scope="row" class="col-sm-6">Original URL</th>
+                                  <td class="col-sm-6">
+                                      <a href="{{url.url}}">
+                                      {{url.url}}
+                                      </a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th scope="row" class="col-sm-6">Clicks</th>
+                                  <td class="col-sm-6">{{url.click_count}}</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row" class="col-sm-6">Last access</th>
+                                  <td class="col-sm-6">{{url.last_access.month}}/{{url.last_access.day}}/{{url.last_access.year}}</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row" class="col-sm-6">Last refresh</th>
+                                  <td class="col-sm-6">{{url.update_date.month}}/{{url.update_date.day}}/{{url.update_date.year}}</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row" class="col-sm-6">Last refresh IP</th>
+                                  <td class="col-sm-6">{{url.ip}}</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+          <div class="footer">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-sm-4">
+                          <ul class="list-unstyled text-md-left">
+                              <li>
+                                  <a href="#">Homepage</a>
+                              </li>
+                              <li>
+                                  <a href="#">Info Page</a>
+                              </li>
+                              <li>
+                                  <a href="#">Github Repo</a>
+                              </li>
+                          </ul>
+                      </div>
+                      <div class="col-sm-4 text-md-center">
+                          This software runs under the MIT License (MIT)
+                      </div>
+                      <div class="col-sm-4 text-md-right">
+                          Coded by <a href="#">Moisés Neto</a> at <a href="mailto:ntocampos@gmail.com">ntocampos@gmail.com</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    <!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+</body>
+</html>

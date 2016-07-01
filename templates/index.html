@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask URL Shortener</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <section id="top-section">
+        <div class="top-button">
+            <a href="/">
+                u<strong>shrink</strong>
+            </a>
+        </div>
+
+        <div class="container">
+            <div class="flex-container">
+                <form id="url_form" action="/shrink" method="post">
+                    <div class="row">
+                        <div class="form-group col-sm-offset-3">
+                            <input name="url_input" id="url_input" type="text" class="form-control form-control-lg" placeholder="Put your URL here">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="submit" href="" class="btn btn-danger btn-lg pull-xs-right">Shrink!</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-section">
+        <div class="container">
+            <p class="lead">
+                This project was done with the main objective being to learn and practice the application of some tools used here, like <strong>Flask</strong> and <strong>Bootstrap</strong>, as well as pure CSS. I will try to maintain this URL shortener up and running, so it can be used as meant, but I can't guarantee stability in high intensity usage, once this will be hosted at a free Heroku dino.
+            </p>
+            <p class="lead pull-xs-right">Hope you enjoy.</p>
+        </div>
+    </section>
+
+    <section id="tech-section">
+        <div class="container">
+            <div class="card text-xs-center col-sm-4">
+                <img class="card-img-top" src="{{ url_for('static', filename='img/flask.jpg') }}" alt="Flask logo">
+                <div class="card-block">
+                    <p class="card-text">This project runs under Flask, a Python microframework. To learn more, visit:</p>
+                    <p class="card-text">
+                        <a href="http://flask.pocoo.org/" role="button" class="btn btn-primary-outline">
+                            Flask Official Website
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="card text-xs-center col-sm-4">
+                <img class="card-img-top" src="{{ url_for('static', filename='img/twitter_bootstrap.png') }}" alt="bootstrap logo">
+                <div class="card-block">
+                    <p class="card-text">As front-end framework, we used Bootstrap 4 alpha. To learn more, visit:</p>
+                    <p class="card-text">
+                        <a href="http://v4-alpha.getbootstrap.com/" role="button" class="btn btn-primary-outline" >
+                            Bootstrap 4-alpha Docs
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="card text-xs-center col-sm-4">
+                <img class="card-img-top" src="{{ url_for('static', filename='img/github.png') }}" alt="github logo">
+                <div class="card-block">
+                    <p class="card-text">The code of this project is available at Github</p>
+                    <p class="card-text">
+                        <a href="https://github.com/ntocampos/flask-urlshortener" class="btn btn-primary-outline">GitHub Repo Page</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <ul class="list-unstyled text-md-left">
+                        <li>
+                            <a href="#">Homepage</a>
+                        </li>
+                        <li>
+                            <a href="#">Info Page</a>
+                        </li>
+                        <li>
+                            <a href="#">Github Repo</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 text-md-center">
+                    This software runs under the MIT License (MIT)
+                </div>
+                <div class="col-sm-4 text-md-right">
+                    Coded by <a href="#">Moisés Neto</a> at <a href="mailto:ntocampos@gmail.com">ntocampos@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+
+    <script type="text/javascript">
+    function isValidURL(str) {
+        var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+        '(\\#[-a-z\\d_]*)?$','i'); // fragment locater
+
+        if(!pattern.test(str)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    $(function () {
+        $('#url_form').submit(
+            function() {
+                var url = $('#url_input').val();
+                return isValidURL(url);
+            }
+        );
+    });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,6 @@
+generic-imgs
+
+#Python files
+venv
+__pycache__
+*.pyc
