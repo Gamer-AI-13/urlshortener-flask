@@ -32,7 +32,8 @@ def shrink():
 def info(url_hash):
     _url = Url.query.filter_by(url_hash = url_hash).first()
     if _url:
-        return render_template('info.html', url = _url)
+        domain = request.headers['host']
+        return render_template('info.html', url = _url, domain = domain)
     else:
         redirect('/')
 
