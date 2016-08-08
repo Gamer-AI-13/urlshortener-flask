@@ -35,7 +35,7 @@ def info(url_hash):
         domain = request.headers['host']
         return render_template('info.html', url = _url, domain = domain)
     else:
-        redirect('/')
+        return redirect('/404')
 
 @app.route('/<url_hash>')
 def page_redirect(url_hash):
