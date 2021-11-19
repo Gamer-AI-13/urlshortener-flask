@@ -1,9 +1,11 @@
 from flask import render_template, request, redirect, url_for
 from main import app
+import os
 from datetime import datetime
 from database import urlall
 DATABASENAME = "urls"
-db = urlall(Config.DATABASE_URL, DATABASENAME)
+ConfigDATABASE_URL = os.environ.get("DATABASE_URL", "12345")
+db = urlall(ConfigDATABASE_URL, DATABASENAME)
 
 
 @app.route('/', methods=['GET'])
