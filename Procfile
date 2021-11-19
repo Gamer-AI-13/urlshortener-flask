@@ -1,2 +1,1 @@
-heroku ps:scale web=1
-web: gunicorn main:app --log-file=-
+web: gunicorn app:app --timeout 100 --log-file=-
