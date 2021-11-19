@@ -41,7 +41,7 @@ def info(url_hash):
         domain = request.headers['host']
         url = db.get_info(url_hash)
         ssurl = url['shurl']
-        return render_template('info.html', url = ssurl, oldurl = url['url'] domain = domain)
+        return render_template('info.html', url = ssurl, oldurl = url['url'], domain = domain)
     else:
         return redirect('/404')
 
