@@ -15,7 +15,7 @@ class urlall:
             join_date = datetime.date.today().isoformat()
         )  
     def add_url(self, shurl, url):
-         user = self.new_url(shurl, url, 0)
+         user = self.new_url(shurl, url, None)
          self.col.insert_one(user)
     def is_surl_exist(self, shurl):
          user = self.col.find_one({'shurl': shurl})
