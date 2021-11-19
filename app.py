@@ -26,7 +26,7 @@ def shrink():
     surls = db.is_surl_exist(shorturl)
     if not surls:
         # In case it doesn't exist
-        surls = db.add_url(shorturl, request.remote_addr)
+        surls = db.add_url(shorturl, request.new_url)
         shortedurl = shorturl
     else:
         # If exists, just update the update date
