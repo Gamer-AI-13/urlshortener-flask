@@ -14,19 +14,19 @@ class urlall:
             views = views,
             join_date = datetime.date.today().isoformat()
         )  
-    async def add_url(self, shurl, url):
+    def add_url(self, shurl, url):
          user = self.new_url(shurl, url, 0)
          self.col.insert_one(user)
-    async def is_surl_exist(self, shurl):
+    def is_surl_exist(self, shurl):
          user = self.col.find_one({'shurl': shurl})
          print(user)
          return True if user else False
     #async def total_users_count(self):
         #count = await self.col.count_documents({})
         #return count
-    async def get_info(self, shurl):
+    def get_info(self, shurl):
          user = self.col.find_one({'shurl': shurl})
          print (user)
          return user
-    async def delete_url(self, shurl):
+    def delete_url(self, shurl):
          self.col.delete_one({'shurl': shurl})
