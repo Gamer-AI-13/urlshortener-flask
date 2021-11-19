@@ -30,9 +30,9 @@
                       <h1 class="display-5">
                           about
                       </h1>
-                      <a href="/{{url.url_hash}}" class="btn">
+                      <a href="/{{url}}" class="btn">
                           <strong class="domain">
-                              {{ domain }}/<span class="red-text">{{url.url_hash}}</span>
+                              {{ domain }}/<span class="red-text">{{url}}</span>
                           </strong>
                       </a>
                   </div>
@@ -42,7 +42,7 @@
                               <tr>
                                   <th scope="row" class="col-sm-6">Original URL</th>
                                   <td class="col-sm-6">
-                                      <a href="{{url.url}}">
+                                      <a href="{{oldurl}}">
                                       {{url.url}}
                                       </a>
                                   </td>
