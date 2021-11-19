@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, url_for
-from main import app
+from app import app
 import os
 from datetime import datetime
 from database import urlall
