@@ -3,6 +3,8 @@ from app import app
 import os
 from datetime import datetime
 from database import urlall
+import random
+import string
 DATABASENAME = "urls"
 ConfigDATABASE_URL = os.environ.get("DATABASE_URL", "12345")
 db = urlall(ConfigDATABASE_URL, DATABASENAME)
