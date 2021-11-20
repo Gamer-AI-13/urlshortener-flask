@@ -46,7 +46,8 @@ def apishrink():
     if not surls:
         # In case it doesn't exist
         surls = db.add_url(shorturl, new_url)
-        shortedurl = request.base_url + shorturl
+        ase_url = request.base_url - "api"
+        shortedurl = ase_url + shorturl
         return jsonify(
             {
                 "url": shortedurl
