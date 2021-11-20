@@ -34,6 +34,32 @@ def shrink():
 
     return redirect('/info/{shortedurl}'.format(shortedurl = shortedurl))
 
+@app.route('/api/shrink', methods = ['GET'])
+def apishrink():
+    # TODO parse the input
+    new_url = request.args['url']
+    print(new_url)
+    shorturl = ''.join([random.choice(string.ascii_lowercase + string.digits + string.ascii_uppercase) for n in range(5)])
+    print(shorturl)
+    # First, we check if this URL isn't already shortened
+    surls = db.is_surl_exist(shorturl)
+    if not surls:
+        # In case it doesn't exist
+        surls = db.add_url(shorturl, new_url)
+        shortedurl = shorturl
+        return jsonify(
+            {
+                "url": shortedurl
+            }
+        )
+    else:
+        # If exists, just update the update date
+        return jsonify(
+            {
+                "error": "something went wrong"
+            }
+        )
+
 @app.route('/info/<url_hash>', methods=['POST', 'GET'])
 def info(url_hash):
     _url = db.is_surl_exist(url_hash)
