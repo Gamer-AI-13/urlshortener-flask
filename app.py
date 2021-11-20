@@ -34,7 +34,7 @@ def shrink():
 
     return redirect('/info/{shortedurl}'.format(shortedurl = shortedurl))
 
-@app.route('/api/shrink', methods = ['GET'])
+@app.route('/api', methods = ['GET'])
 def apishrink():
     # TODO parse the input
     new_url = request.args['url']
