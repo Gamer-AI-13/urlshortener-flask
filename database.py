@@ -21,6 +21,10 @@ class urlall:
          user = self.col.find_one({'shurl': shurl})
          print(user)
          return True if user else False
+    def is_url_exist(self, url):
+         user = self.col.find_one({'url': url})
+         print(user)
+         return True if user else False
     #async def total_users_count(self):
         #count = await self.col.count_documents({})
         #return count
@@ -28,5 +32,8 @@ class urlall:
          user = self.col.find_one({'shurl': shurl})
          print (user)
          return user
+    def get_url(self,url):
+        user = self.col.find_one({'url': url})
+        return user
     def delete_url(self, shurl):
          self.col.delete_one({'shurl': shurl})

@@ -61,6 +61,31 @@ def apishrink():
             }
         )
 
+@app.route('/urlinfo', methods = ['GET'])
+def apishrink():
+    # TODO parse the input
+    new_url = request.args['url']
+    print(new_url)
+    #shorturl = ''.join([random.choice(string.ascii_lowercase + string.digits + string.ascii_uppercase) for n in range(5)])
+    #print(shorturl)
+    # First, we check if this URL isn't already shortened
+    surls = db.is_url_exist(new_url)
+    if not surls:
+        url = db.get_url(new_url)
+        surl = url['shurl']
+        return jsonify(
+            {
+                "url": surl
+            }
+        )
+    else:
+        # If exists, just update the update date
+        return jsonify(
+            {
+                "error": "something went wrong"
+            }
+        )
+
 @app.route('/info/<url_hash>', methods=['POST', 'GET'])
 def info(url_hash):
     _url = db.is_surl_exist(url_hash)
