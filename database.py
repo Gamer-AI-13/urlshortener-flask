@@ -34,6 +34,7 @@ class urlall:
          return user
     def get_url(self,url):
         user = self.col.find_one({'url': url})
+        print(user)
         return user
     def delete_url(self, shurl):
          self.col.delete_one({'shurl': shurl})
