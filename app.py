@@ -62,7 +62,7 @@ def apishrink():
         )
 
 @app.route('/urlinfo', methods = ['GET'])
-def apishrink():
+def apishrinkinfo():
     # TODO parse the input
     new_url = request.args['url']
     print(new_url)
