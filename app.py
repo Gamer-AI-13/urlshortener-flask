@@ -70,7 +70,7 @@ def apishrinkinfo():
     #print(shorturl)
     # First, we check if this URL isn't already shortened
     surls = db.is_url_exist(new_url)
-    if not surls:
+    if surls:
         url = db.get_url(new_url)
         surl = url['shurl']
         return jsonify(
